@@ -1,0 +1,40 @@
+{
+	"tabWidth": 4,
+	"useTabs": true,
+	"singleQuote": true,
+	"trailingComma": "es5",
+	"printWidth": 120,
+	"overrides": [
+		{
+			"files": ["*.yml", "package.json"],
+			"options": {
+				"useTabs": false,
+				"tabWidth": 2
+			}
+		},
+		{
+			"files": ["*.vue"],
+			"options": {
+				"pugBracketSameLine": true,
+				"pugSortAttributesBeginning": [
+					"^v-for$",
+					"^v-(if|else|else-if)$",
+					"^\\:?is$",
+					"^\\:?ref$",
+					"^\\:?key$",
+					"^v-model$",
+					"^\\:?value$",
+					"^cols$",
+					"^xs$",
+					"^sm$",
+					"^md$",
+					"^lg$",
+					"^xl$"
+				],
+				"pugSortAttributes": "asc",
+				"pugSortAttributesEnd": ["^v-(bind|on)$"],
+				"pugWrapAttributesThreshold": 2
+			}
+		}
+	]
+}
