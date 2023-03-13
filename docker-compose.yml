@@ -7,5 +7,11 @@ services:
       dockerfile: docker/Dockerfile
     volumes: 
       - ./web:/app/services/web
+  reverse-proxy: 
+    build: 
+      context: ./reverse-proxy
+      dockerfile: docker/Dockerfile
     ports: 
-      - "3080:3000"
+      - "80:80"
+    depends_on: 
+      - web
