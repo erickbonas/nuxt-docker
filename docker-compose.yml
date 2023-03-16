@@ -1,5 +1,6 @@
 version: "3.7"
-
+networks: 
+  proxy:
 services:
   web:
     build: 
@@ -7,6 +8,16 @@ services:
       dockerfile: docker/Dockerfile
     volumes: 
       - ./web:/app/services/web
+    networks:
+      - proxy
+  api: 
+    build: 
+      context: ./api
+      dockerfile: docker/Dockerfile
+    volumes:
+      - ./api:/app/services/api
+    networks:
+      - proxy   
   reverse-proxy: 
     build: 
       context: ./reverse-proxy
@@ -15,3 +26,6 @@ services:
       - "80:80"
     depends_on: 
       - web
+      - api
+    networks: 
+      - proxy
